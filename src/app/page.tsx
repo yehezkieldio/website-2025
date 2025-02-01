@@ -1,7 +1,11 @@
 export default function Home() {
     return (
-        <div>
-            <h1>Hello, world!</h1>
-        </div>
+        <main className="space-y-24">
+            <section>
+                <div>
+                    <p className="text-black dark:text-white">Hello, world!</p>
+                </div>
+            </section>
+        </main>
     );
 }
