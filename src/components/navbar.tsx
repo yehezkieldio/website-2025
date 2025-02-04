@@ -29,7 +29,6 @@ const navigationItems: NavigationItem[] = [
     { title: "Writing", href: "/posts", icon: "" },
     { title: "Projects", href: "/projects", icon: "" },
     { title: "Universe", href: "/universe", icon: <Icons.universe /> },
-    { title: "Read", href: "/read", icon: <Icons.read /> },
     {
         title: "X",
         href: socials.x,
@@ -72,7 +71,7 @@ export function Navbar() {
                                             "px-4 py-2",
                                             "text-base font-base -tracking-wider",
                                             "text-[#809f9d]",
-                                            "bg-background",
+                                            "bg-transparent",
                                             "transition-colors duration-300",
                                             "hover:text-foreground",
                                             "focus:bg-background focus:text-foreground focus:outline-none",
