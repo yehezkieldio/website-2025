@@ -5,6 +5,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 import { Navbar } from "#/components/navbar";
+import { ScrollToTop } from "#/components/scroll-to-top";
 import { cn } from "#/lib/utils";
 
 const display = Manrope({
@@ -46,6 +47,7 @@ export default function RootLayout({
             <body className={cn(display.variable, sans.variable, mono.variable, "dark font-sans antialiased")}>
                 <div className="relative min-h-screen">
                     <div className="relative flex min-h-screen w-full flex-col">
+                        <ScrollToTop />
                         <Navbar />
                         {children}
                     </div>

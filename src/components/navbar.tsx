@@ -45,7 +45,7 @@ export function Navbar() {
 
     return (
         <nav className="font-mono">
-            <div className="flex items-center justify-between px-7 py-7 md:py-7 max-w-7xl mx-auto">
+            <div className="flex items-center justify-between px-4 py-7 md:py-7 max-w-7xl mx-auto">
                 <Link href="/" className="flex items-center space-x-2">
                     <Image
                         className="rounded-full border transition-transform duration-300 hover:scale-110 hover:shadow-lg"

@@ -71,4 +71,16 @@
         @apply bg-opacity-30;
         background-color: hsla(300, 46%, 39%, 0.2);
     }
+
+    ::-webkit-scrollbar {
+        @apply w-2;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply rounded-full bg-muted-foreground/20 hover:bg-muted-foreground/30;
+    }
 }
