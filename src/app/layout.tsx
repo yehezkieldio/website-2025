@@ -1,18 +1,20 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Manrope, Space_Mono } from "next/font/google";
 
 import type { Metadata, Viewport } from "next";
 
 import "./globals.css";
 
-const geistSans = Geist({
+const geistSans = Manrope({
     variable: "--font-geist-sans",
     subsets: ["latin"],
     display: "swap",
 });
 
-const geistMono = Geist_Mono({
+const geistMono = Space_Mono({
+    weight: ["400", "700"],
     variable: "--font-geist-mono",
     subsets: ["latin"],
+    display: "swap",
 });
 
 export const viewport: Viewport = {
