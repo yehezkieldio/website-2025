@@ -66,4 +66,9 @@
     body {
         @apply bg-background text-[#e0def4];
     }
+
+    ::selection {
+        @apply bg-opacity-30;
+        background-color: hsla(300, 46%, 39%, 0.2);
+    }
 }

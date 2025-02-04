@@ -1,17 +1,25 @@
-import { Manrope, Space_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Manrope } from "next/font/google";
 
 import type { Metadata, Viewport } from "next";
 
 import "./globals.css";
 
-const geistSans = Manrope({
+import { Navbar } from "#/components/navbar";
+import { cn } from "#/lib/utils";
+
+const display = Manrope({
+    variable: "--font-manrope",
+    subsets: ["latin"],
+    display: "swap",
+});
+
+const sans = Geist({
     variable: "--font-geist-sans",
     subsets: ["latin"],
     display: "swap",
 });
 
-const geistMono = Space_Mono({
-    weight: ["400", "700"],
+const mono = Geist_Mono({
     variable: "--font-geist-mono",
     subsets: ["latin"],
     display: "swap",
@@ -25,7 +33,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
     title: "Yehezkiel Dio Sinolungan",
-    description: "",
+    description: "Software Engineer",
 };
 
 export default function RootLayout({
@@ -34,8 +42,15 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" suppressHydrationWarning>
-            <body className={`${geistSans.variable} ${geistMono.variable} dark font-sans antialiased`}>{children}</body>
+        <html lang="en">
+            <body className={cn(display.variable, sans.variable, mono.variable, "dark font-sans antialiased")}>
+                <div className="relative min-h-screen">
+                    <div className="relative flex min-h-screen w-full flex-col">
+                        <Navbar />
+                        {children}
+                    </div>
+                </div>
+            </body>
         </html>
     );
 }

@@ -25,10 +25,9 @@ interface NavigationItem {
 }
 
 const navigationItems: NavigationItem[] = [
-    { title: "Information", href: "/info", icon: "" },
+    { title: "About", href: "/about", icon: "" },
     { title: "Writing", href: "/posts", icon: "" },
     { title: "Projects", href: "/projects", icon: "" },
-    { title: "Universe", href: "/universe", icon: <Icons.universe /> },
     {
         title: "X",
         href: socials.x,
@@ -46,10 +45,10 @@ export function Navbar() {
 
     return (
         <nav className="font-mono">
-            <div className="flex items-center justify-between p-7 max-w-7xl mx-auto">
+            <div className="flex items-center justify-between px-7 py-7 md:py-7 max-w-7xl mx-auto">
                 <Link href="/" className="flex items-center space-x-2">
                     <Image
-                        className="rounded-full border"
+                        className="rounded-full border transition-transform duration-300 hover:scale-110 hover:shadow-lg"
                         src="/android-chrome-512x512.png"
                         alt="Yehezkiel Dio"
                         width={40}
@@ -57,7 +56,6 @@ export function Navbar() {
                     />
                 </Link>
 
-                {/* Desktop Navigation */}
                 <div className="hidden md:flex">
                     <NavigationMenu>
                         <NavigationMenuList>
@@ -69,7 +67,7 @@ export function Navbar() {
                                             "group inline-flex",
                                             "h-9 w-max items-center justify-center",
                                             "px-4 py-2",
-                                            "text-base font-base -tracking-wider",
+                                            "text-base font-base tracking-tight",
                                             "text-[#809f9d]",
                                             "bg-transparent",
                                             "transition-colors duration-300",
@@ -79,6 +77,8 @@ export function Navbar() {
                                             "data-[state=open]:bg-background/50",
                                             "disabled:pointer-events-none disabled:opacity-50"
                                         )}
+                                        target={item.icon ? "_blank" : undefined}
+                                        rel={item.icon ? "noopener noreferrer" : undefined}
                                     >
                                         {item.icon || item.title}
                                     </NavigationMenuLink>
@@ -88,12 +88,11 @@ export function Navbar() {
                     </NavigationMenu>
                 </div>
 
-                {/* Mobile Navigation */}
                 <div className="md:hidden">
                     <Sheet open={isOpen} onOpenChange={setIsOpen}>
                         <SheetTitle hidden={true}>Yehezkiel Dio</SheetTitle>
                         <SheetTrigger asChild>
-                            <Button variant="outline" size="icon">
+                            <Button variant="outline" size="icon" className="rounded-full">
                                 <Menu className="h-6 w-6" />
                                 <span className="sr-only">Toggle navigation menu</span>
                             </Button>
@@ -104,7 +103,7 @@ export function Navbar() {
                                     <Link
                                         key={item.title}
                                         href={item.href}
-                                        className="text-lg font-medium"
+                                        className="text-lg font-medium font-mono"
                                         onClick={() => setIsOpen(false)}
                                     >
                                         {item.title}
