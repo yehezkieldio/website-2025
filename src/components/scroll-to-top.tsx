@@ -13,7 +13,7 @@ export function ScrollToTop() {
 
     React.useEffect(() => {
         const handleScroll = () => {
-            const isVisible = window.scrollY > 300;
+            const isVisible = window.scrollY > window.innerHeight * 0.25;
             setShow(isVisible);
         };
 
@@ -30,8 +30,8 @@ export function ScrollToTop() {
             variant="outline"
             size="icon"
             className={cn(
-                "fixed bottom-4 right-4 z-[9999] rounded-full transition-opacity duration-300",
-                show ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+                show ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none",
+                "fixed bottom-4 right-4 z-[9999] rounded-full transition-opacity duration-300"
             )}
             onClick={scrollToTop}
             aria-label="Scroll to top"
