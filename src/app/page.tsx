@@ -3,25 +3,7 @@
 import { motion } from "motion/react";
 
 import { Socials } from "#/components/socials";
-
-const VARIANTS_CONTAINER = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.15,
-        },
-    },
-};
-
-const VARIANTS_SECTION = {
-    hidden: { opacity: 0, y: 20, filter: "blur(8px)" },
-    visible: { opacity: 1, y: 0, filter: "blur(0px)" },
-};
-
-const TRANSITION_SECTION = {
-    duration: 0.3,
-};
+import { TRANSITION_SECTION, VARIANTS_CONTAINER, VARIANTS_SECTION } from "#/lib/motion";
 
 export default function Home() {
     return (
