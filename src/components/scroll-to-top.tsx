@@ -1,17 +1,15 @@
 "use client";
 
-import * as React from "react";
+import { useEffect, useState } from "react";
 
-import { ArrowUp } from "lucide-react";
-
+import { Icons } from "#/components/icons";
+import { Button } from "#/components/ui/button";
 import { cn } from "#/lib/utils";
 
-import { Button } from "./ui/button";
-
 export function ScrollToTop() {
-    const [show, setShow] = React.useState(false);
+    const [show, setShow] = useState(false);
 
-    React.useEffect(() => {
+    useEffect(() => {
         const handleScroll = () => {
             const isVisible = window.scrollY > window.innerHeight * 0.25;
             setShow(isVisible);
@@ -36,7 +34,7 @@ export function ScrollToTop() {
             onClick={scrollToTop}
             aria-label="Scroll to top"
         >
-            <ArrowUp className="h-4 w-4" />
+            <Icons.arrowUp />
         </Button>
     );
 }

@@ -1,4 +1,4 @@
-import { Bookmark, Container } from "lucide-react";
+import { ArrowUp, Bookmark, Container } from "lucide-react";
 
 type IconProps = React.HTMLAttributes<SVGElement>;
 
@@ -39,4 +39,5 @@ export const Icons = {
     ),
     universe: (props: IconProps) => <Container className={iconStyles} {...props} />,
     read: (props: IconProps) => <Bookmark className={iconStyles} {...props} />,
+    arrowUp: (props: IconProps) => <ArrowUp {...props} className="h-4 w-4" />,
 };
