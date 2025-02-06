@@ -1,7 +1,6 @@
+import { Icons } from "#/components/icons";
+import { SocialIcon } from "#/components/social-icon";
 import { socials } from "#/lib/socials";
-
-import { Icons } from "./icons";
-import { SocialIcon } from "./social-icon";
 
 interface SocialLink {
     icon: React.ComponentType<{ className?: string }>;

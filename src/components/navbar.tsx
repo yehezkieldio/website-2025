@@ -4,8 +4,6 @@ import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { Menu } from "lucide-react";
-
 import { Icons } from "#/components/icons";
 import { Button } from "#/components/ui/button";
 import {
@@ -93,7 +91,7 @@ export function Navbar() {
                         <SheetTitle hidden={true}>Yehezkiel Dio</SheetTitle>
                         <SheetTrigger asChild>
                             <Button variant="outline" size="icon" className="rounded-full">
-                                <Menu className="h-6 w-6" />
+                                <Icons.menu className="h-6 w-6" />
                                 <span className="sr-only">Toggle navigation menu</span>
                             </Button>
                         </SheetTrigger>
