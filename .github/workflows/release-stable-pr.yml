@@ -10,7 +10,7 @@ jobs:
     create-release-pr:
         name: Create Pull Request
         runs-on: ubuntu-latest
-        if: startsWith(github.event.head_commit.message, 'chore(website):')
+        if: ${{contains(github.event.head_commit.message, format('chore(website){0} website@', ':'))}}
         permissions:
             contents: read
         steps:
