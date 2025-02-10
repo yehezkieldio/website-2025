@@ -16,6 +16,8 @@ jobs:
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
+              with:
+                ref: stable
 
             - name: Extract version from commit message
               id: version
@@ -46,3 +48,4 @@ jobs:
                       release
                   assignees: yehezkieldio
                   reviewers: yehezkieldio
+                  draft: false
