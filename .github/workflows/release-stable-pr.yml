@@ -1,0 +1,48 @@
+name: Release Stable PR
+
+on:
+    push:
+        branches:
+            - master
+    workflow_dispatch:
+
+jobs:
+    create-release-pr:
+        name: Create Release Pull Request
+        runs-on: ubuntu-latest
+        if: startsWith(github.event.head_commit.message, 'chore(website):')
+        permissions:
+            contents: read
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Extract version from commit message
+              id: version
+              run: |
+                  VERSION=$(echo "${{ github.event.head_commit.message }}" | grep -oP 'website@\K[0-9]+\.[0-9]+\.[0-9]+')
+                  echo "version=$VERSION" >> $GITHUB_OUTPUT
+                  VERSION=$(echo "${{ github.event.head_commit.message }}" | grep -oP 'website@\K[0-9]+\.[0-9]+\.[0-9]+')
+                  echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+            - name: Create Pull Request
+              id: create_pr
+              uses: peter-evans/create-pull-request@v7
+              with:
+                  token: ${{ secrets.GH_PAT }}
+                  commit-message: ${{ github.event.head_commit.message }}
+                  committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+                  author: ${{ github.actor }} <${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com>
+                  signoff: false
+                  base: master
+                  branch: stable
+                  delete-branch: false
+                  title: ${{ github.event.head_commit.message }}
+                  body: |
+                      This PR was automatically created by a GitHub Action.
+                      The version of the website has been updated to ${{ steps.version.outputs.version }}.
+                      Please refer to the CHANGELOG.md for more information.
+                  labels: |
+                      release
+                  assignees: yehezkieldio
+                  reviewers: yehezkieldio
