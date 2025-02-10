@@ -6,7 +6,9 @@
         "dev": "next dev --turbopack",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint"
+        "lint": "next lint",
+        "bump": "cliff-jumper",
+        "check-update": "cliff-jumper --dry-run"
     },
     "dependencies": {
         "@radix-ui/react-dialog": "^1.1.5",
@@ -29,6 +31,7 @@
     },
     "devDependencies": {
         "@eslint/eslintrc": "^3",
+        "@favware/cliff-jumper": "^6.0.0",
         "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
         "@types/node": "^20",
         "@types/react": "^19",
