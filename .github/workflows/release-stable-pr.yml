@@ -1,4 +1,4 @@
-name: Release Stable PR
+name: Sync Stable Branch
 
 on:
     push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
     create-release-pr:
-        name: Create Release Pull Request
+        name: Create Pull Request
         runs-on: ubuntu-latest
         if: startsWith(github.event.head_commit.message, 'chore(website):')
         permissions:
@@ -17,7 +17,7 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v4
               with:
-                ref: stable
+                  ref: stable
 
             - name: Extract version from commit message
               id: version
