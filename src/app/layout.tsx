@@ -2,6 +2,9 @@ import { Geist, Geist_Mono, Manrope } from "next/font/google";
 
 import type { Metadata, Viewport } from "next";
 
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 import "./globals.css";
 
 import { Navbar } from "#/components/navbar";
@@ -50,6 +53,8 @@ export default function RootLayout({
                         <ScrollToTop />
                         <Navbar />
                         {children}
+                        <Analytics />
+                        <SpeedInsights />
                     </div>
                 </div>
             </body>
